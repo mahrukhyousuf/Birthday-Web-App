@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Your Gift</title>
+</head>
+<body>
+    <h1 id="gift-text-">Click For Your Gift! 🎁 </h1>
+    <img id="gift-avatar" src="assets/ham.png" alt="Gift Avatar" onclick="unwrapGift()">
+    <h2 id="gift-message">ME<3</h2>
+    <audio id="celebrationMusic" src="assets/applause.mp3"></audio>
+
+    <div id="confetti-container"></div>
+
+    <script>
+        function unwrapGift() {
+            document.getElementById('gift-avatar').src = 'assets/maha.png';
+            document.getElementById('celebrationMusic').play();
+            document.getElementById('gift-message').style.display= 'block';
+            startConfetti();
+            
+        }
+
+        function startConfetti() {
+            const confettiContainer = document.getElementById('confetti-container');
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                const colors = ['#ff69b4', '#ffb6c1', '#ff1493', '#c71585', '#db7093', '#ffde59', '#7ed957'];
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = Math.random() * 10 + 5 + 'px';
+                confettiContainer.appendChild(confetti);
+            }
+        }
+    </script>
+</body>
+</html>

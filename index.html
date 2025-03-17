@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Happy Birthday!</title>
+</head>
+<body>
+    
+     <div class="birthday-header">
+        <img src="assets/birthday-header.png" alt="Happy Birthday" id="birthday-title">
+     </div>
+    
+    <!-- Moving Avatar and Cake -->
+    <div id="avatar-container">
+        <img id="moving-avatar" src="assets/ham.png" alt="Pixel Avatar">
+        <img id="cake" src="assets/cake.png" alt="Cake">
+    </div>
+
+    <!-- Moving Avatar
+    <img id="moving-avatar" src="assets/ham.png" alt="Pixel Avatar"> -->
+
+    <!-- Additional Images (Cat Images) -->
+    <img id="cat" src="assets/cat.png" alt="Cat" />
+    <img id="cat2" src="assets/cat2.png" alt="Cat2" />
+    <!-- Background Music -->
+    <audio id="birthdaySong" src="assets/birthdaysong.mp3" loop autoplay></audio>
+
+    <!-- Balloons -->
+    <img id="pink-balloon" src="assets/pinkpalloon.png" alt="Pink Balloon">
+    <img id="green-balloon" src="assets/greenballoon.png" alt="Green Balloon">
+    <img id="red-balloon" src="assets/redballoon.png" alt="Red Balloon">
+    <img id="purple-balloon" src="assets/purpleballoon.png" alt="Purple Balloon">
+
+    <!-- Play Button -->
+    <button id="play-button" onclick="playGame()">Start Game</button>
+
+    <script>
+        const song = document.getElementById('birthdaySong');
+
+        // Play music on load
+        window.onload = () => {
+            if (!localStorage.getItem('musicPlaying')) {
+                song.play();
+                localStorage.setItem('musicPlaying', 'true');
+            }
+        };
+
+        // Keep music playing across pages
+        function playGame() {
+            localStorage.setItem('musicPlaying', 'true');
+            window.location.href = 'game.html';
+        }
+
+        window.addEventListener('click', () => {
+        const audio = document.getElementById('background-music');
+        if (audio.paused) {
+            audio.play().catch(error => console.log("Autoplay blocked: ", error));
+        }
+        });
+
+        window.onload = () => {
+        // Request fullscreen after a slight delay to ensure the page has loaded
+        setTimeout(() => {
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+                document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+                document.documentElement.webkitRequestFullscreen();
+            } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+                document.documentElement.msRequestFullscreen();
+            }
+        }, 500); // Delay to avoid race conditions
+    };
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Version 1 -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Happy Birthday!</title>
+</head>
+<body>
+    <h1>🎉 Happy Birthday, [Name]! 🎉</h1>
+    <img src="assets/ham.png" alt="Pixel Avatar">
+    <button onclick="window.location.href='game.html'">Play Game</button>
+
+    <audio id="birthdaySong" src="assets/birthdaysong.mp3"></audio>
+
+    <script>
+        window.onload = () => {
+            const song = document.getElementById('birthdaySong');
+            song.play();
+        };
+    </script>
+</body>
+</html> -->

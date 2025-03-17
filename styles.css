@@ -1,0 +1,267 @@
+/* Global Styling */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    color: pink;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #1e1e1e;
+    color: white;
+    background-image: url('assets/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+    overflow: hidden;
+    cursor: url('assets/mouse.png'), auto;
+}
+
+/* Remove white border */
+img {
+    /* width: 300px; */
+    /* height: auto; */
+    margin: 20px;
+    border: none;
+    border-radius: 10px;
+}
+
+/* Birthday header image */
+.birthday-header{
+    margin-bottom: 1px;
+}
+
+#birthday-title{
+    width: 500px;
+    height: 56px;
+    margin: 0 auto 30px auto;
+}
+/* Avatar and Cake Moving Together */
+#avatar-container {
+    display: flex;
+    /* align-items: center; */
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    max-width: 90vw;
+    gap: 15 px; 
+    /* Reduced gap between them */
+}
+
+
+#moving-avatar, #cake {
+    position: relative;
+    top: -50px;
+    width: 400px !important;
+    height: auto !important;
+    animation: moveLeftRight 5s infinite ease-in-out;
+}
+
+/* Move left to right animation */
+@keyframes moveLeftRight {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(30px); }
+}
+
+/* Position and animate the cat images */
+#cat, #cat2 {
+    position: absolute;
+    width: 300px;
+    z-index: 10;
+}
+
+#cat {
+    left: 0.5%;
+    top: 50%;
+}
+
+#cat2 {
+    right: 0.5%;
+    top: 50%;
+}
+
+#cat-left, #cat-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+}
+
+#cat-left {
+    left: 0.1%;
+}
+
+#cat-right {
+    right: 0.1%;
+}
+
+/* Rotation Animation for Cats */
+@keyframes rotateCat {
+    0%, 100% {
+        transform: translateY(-50%) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-50%) rotate(10deg);
+    }
+}
+
+/* Play button centered at the bottom */
+#play-button {
+    position: fixed;
+    bottom: 50px;
+    background: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#play-button:hover {
+    background: #ff1493;
+    transform: scale(1.1);
+}
+
+/* Trivia Game */
+#question-container {
+    background: #9bbed4;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+#answers button {
+    background: #ff69b4;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#answers button:hover {
+    background: #ff1493;
+    transform: scale(1.1);
+}
+
+/* Next button styling - improved */
+button[onclick="nextQuestion()"] {
+    background: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(255, 105, 180, 0.3);
+}
+
+button[onclick="nextQuestion()"]:hover {
+    background: #ff1493;
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(255, 105, 180, 0.5);
+}
+
+/* Balloon Animation */
+#pink-balloon, #green-balloon, #red-balloon, #purple-balloon {
+    position: absolute;
+    bottom: -100px;
+    animation: floatUp 5s infinite ease-in-out;
+    width: 300px; /* Made balloons smaller */
+}
+
+/* Pink Balloon (Further Left) */
+#pink-balloon {
+    left: 1%;
+}
+
+/* Green Balloon (Further Left) */
+#green-balloon {
+    left: 10%;
+}
+
+/* Red Balloon (Further Right) */
+#red-balloon {
+    right: 10%;
+}
+
+/* Purple Balloon (Further Right) */
+#purple-balloon {
+    right: 1%;
+}
+
+/* Float Up Animation */
+@keyframes floatUp {
+    0% {
+        bottom: -100px;
+        opacity: 0;
+    }
+    50% {
+        bottom: 80%;
+        opacity: 1;
+    }
+    100% {
+        bottom: 100%;
+        opacity: 0;
+    }
+}
+
+/* Confetti Animation */
+#confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.confetti {
+    width: 10px;
+    height: 10px;
+    background: pink;
+    position: absolute;
+    animation: fall 3s linear forwards;
+}
+
+/* Confetti Falling Animation */
+@keyframes fall {
+    0% {
+        top: -10px;
+    }
+    100% {
+        top: 100vh;
+    }
+}
+
+/* Gift Page Gift Text */
+#gift-text {
+    font-size: 2rem;
+    margin-bottom: 50px;
+    color: #ff3131
+}
+
+/* Gift avatar specific sizing */ 
+#gift-avatar {
+    width: 450px !important;
+    height: auto !important;
+}
+
+/* Gift Message Styling */
+#gift-message {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ff3131;
+    margin-top: 1px;
+    display: none; /* Initially hidden until gift is unwrapped */
+}
