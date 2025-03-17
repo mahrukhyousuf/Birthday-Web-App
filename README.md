@@ -24,7 +24,7 @@ A fun and cute pixel art themed birthday web app created to celebrate your frien
 
 ## 📁 Project Structure  
 /assets
-- ham.png # Pixel art avatar of Hammad
+- ham.png # Pixel art avatar of friend
 - cake.png # Delicious pixel cake
 - birthdaysong.mp3 # Background birthday song
 - correctbuzzer.mp3 # Sound effect for correct answers
